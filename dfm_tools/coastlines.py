@@ -22,7 +22,7 @@ def bbox_convert_crs(bbox, crs):
     return bbox
 
 
-def get_coastlines_mb(bbox:tuple = (-180, -90, 180, 90), min_area:float = 0, crs:str = None, columns:list = ['area']) -> gpd.geoseries.GeoSeries:
+def get_coastlines_gdb(bbox:tuple = (-180, -90, 180, 90), min_area:float = 0, crs:str = None, columns:list = ['area']) -> gpd.geoseries.GeoSeries:
     
     if crs is not None:
         bbox = bbox_convert_crs(bbox, crs)
@@ -87,7 +87,7 @@ def get_borders_gdb(res:str='h', bbox:tuple = (-180, -90, 180, 90), crs:str = No
     return coastlines_gdb
 
 
-def plot_coastlines_mb(ax=None, min_area:float = 0, crs=None, **kwargs):
+def plot_coastlines(ax=None, min_area:float = 0, crs=None, **kwargs):
     """
     get coastlines with get_coastlines_gdb and bbox depending on axlims, plot on ax and set axlims back to original values
     """
@@ -105,7 +105,7 @@ def plot_coastlines_mb(ax=None, min_area:float = 0, crs=None, **kwargs):
     if 'linewidth' not in kwargs:
         kwargs['linewidth'] = 0.5
 
-    coastlines_mb = get_coastlines_mb(bbox=bbox, min_area=min_area, crs=crs)
+    coastlines_mb = get_coastlines_gdb(bbox=bbox, min_area=min_area, crs=crs)
     if coastlines_mb.empty:
         return
     
