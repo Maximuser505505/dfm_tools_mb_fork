@@ -37,12 +37,12 @@ def get_coastlines_mb(bbox:tuple = (-180, -90, 180, 90), min_area:float = 0, crs
     coastlines_gdb_list = [x for x in coastlines_gdb_list if not x.empty]
     if not coastlines_gdb_list:
         return gpd.GeoDataFrame()
-    coastlines_gdb = pd.concat(coastlines_gdb_list)
+    coastlines_gdb_mb = pd.concat(coastlines_gdb_list)
 
     if crs:
-        coastlines_gdb = coastlines_gdb.to_crs(crs)
+        coastlines_gdb_mb = coastlines_gdb_mb.to_crs(crs)
     
-    return coastlines_gdb
+    return coastlines_gdb_mb
 
 
 def get_borders_gdb(res:str='h', bbox:tuple = (-180, -90, 180, 90), crs:str = None) -> gpd.geoseries.GeoSeries:
