@@ -22,7 +22,7 @@ def bbox_convert_crs(bbox, crs):
     return bbox
 
 
-def get_coastlines_gdb(bbox:tuple = (-180, -90, 180, 90), min_area:float = 0, crs:str = None, columns:list = ['area']) -> gpd.geoseries.GeoSeries:
+def get_coastlines_gdb(res:str='h', bbox:tuple = (-180, -90, 180, 90), min_area:float = 0, crs:str = None, columns:list = ['area']) -> gpd.geoseries.GeoSeries:
     
     if crs is not None:
         bbox = bbox_convert_crs(bbox, crs)
