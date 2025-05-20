@@ -435,7 +435,7 @@ def generate_bndpli_cutland(mk:meshkernel.MeshKernel, res:str='f', min_area:floa
 
     """
     bbox = meshkernel_get_bbox(mk)
-    coastlines_gdf = get_coastlines_gdb(bbox=bbox, res=res, min_area=min_area, crs=crs)
+    coastlines_gdf = get_coastlines_gdb(bbox=bbox, min_area=min_area, crs=crs)
     
     xcoords,ycoords = meshkernel_get_outer_xycoords(mk)
     mesh_bnds_xy = np.c_[xcoords,ycoords]
