@@ -30,6 +30,7 @@ def get_coastlines_gdb(res:str='h', bbox:tuple = (-180, -90, 180, 90), min_area:
     main_dir = 'C:/Users/csfel/Desktop/Delft3D-Projects/Input Data'
     dir_coastlines_mb = os.path.join(main_dir, f'Coastline_Scenario_B_Polygon.shp')
     coastlines_gdb_mb = gpd.read_file(dir_coastlines_mb, columns=columns, bbox=bbox)
+    coastlines_gdb_mb = coastlines_gdb_mb.explode(index_parts=False).reset_index(drop=True)
     coastlines_gdb_list = [coastlines_gdb_mb]
 
     # remove empty geodataframes from list to avoid FutureWarning
