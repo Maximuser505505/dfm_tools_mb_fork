@@ -28,7 +28,7 @@ def get_coastlines_gdb(res:str='h', bbox:tuple = (-180, -90, 180, 90), min_area:
         bbox = bbox_convert_crs(bbox, crs)
         
     main_dir = 'C:/Users/csfel/Desktop/Delft3D-Projects/Input Data'
-    dir_coastlines_mb = os.path.join(main_dir, f'Coastline_Scenario_B_Modified.shp')
+    dir_coastlines_mb = os.path.join(main_dir, f'Coastline_Scenario_B_Polygon.shp')
     coastlines_gdb_mb = gpd.read_file(dir_coastlines_mb, columns=columns, bbox=bbox)
     coastlines_gdb_list = [coastlines_gdb_mb]
 
